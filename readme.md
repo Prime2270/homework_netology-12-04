@@ -15,6 +15,8 @@ FROM customer cu JOIN store sto ON sto.store_id = cu.store_id JOIN staff sta ON 
 JOIN address a ON a.address_id = sto.address_id JOIN city ci ON a.city_id = ci.city_id GROUP by cu.store_id, sta.staff_id, a.address_id, ci.city_id HAVING COUNT(cu.store_id) > 300;
 ```
 
+![job1](https://github.com/Prime2270/homework_netology-12-04/blob/main/screenshots/job1.png)
+
 ### Задание 2
 
 Получите количество фильмов, продолжительность которых больше средней продолжительности всех фильмов.
@@ -22,6 +24,8 @@ JOIN address a ON a.address_id = sto.address_id JOIN city ci ON a.city_id = ci.c
 ```
 SELECT count(film_id) FROM film WHERE LENGTH > (SELECT AVG(length) FROM film);
 ```
+
+![job2](https://github.com/Prime2270/homework_netology-12-04/blob/main/screenshots/job2.png)
 
 ### Задание 3
 
@@ -33,3 +37,5 @@ SELECT date_format(payment_date, "%c.%y") AS месяц, COUNT(payment_id) AS к
 WHERE date_format(payment_date, "%c.%y") = (SELECT date_format(payment_date, "%c.%y") FROM payment GROUP BY date_format(payment_date, "%c.%y") ORDER BY SUM(amount) desc limit 1)
 GROUP BY date_format(payment_date, "%c.%y");
 ```
+
+![job3](https://github.com/Prime2270/homework_netology-12-04/blob/main/screenshots/job3.png)
